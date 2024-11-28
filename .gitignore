@@ -3,3 +3,9 @@ build*
 
 CMakeLists.txt.user
 .vscode
+
+# exclude project files
+**.sln
+**.vcxproj
+**.vcxproj.user
+**.vcxproj.filters
