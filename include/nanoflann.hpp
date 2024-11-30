@@ -60,6 +60,8 @@
 #include <unordered_set>
 #include <vector>
 
+#include <MultiEngine/core/memory/MemoryAllocation.h>
+
 /** Library version: 0xMmP (M=Major,m=minor,P=patch) */
 #define NANOFLANN_VERSION 0x162
 
@@ -891,7 +893,7 @@ class PooledAllocator
         {
             // Get pointer to prev block
             void* prev = *(static_cast<void**>(base_));
-            ::free(base_);
+            MultiEngine::memory_free(base_);
             base_ = prev;
         }
         internal_init();
@@ -920,8 +922,7 @@ class PooledAllocator
             const Size blocksize =
                 size > BLOCKSIZE ? size + WORDSIZE : BLOCKSIZE + WORDSIZE;
 
-            // use the standard C malloc to allocate memory
-            void* m = ::malloc(blocksize);
+            void* m = MultiEngine::memory_allocate(blocksize);
             if (!m)
             {
                 fprintf(stderr, "Failed to allocate memory.\n");
