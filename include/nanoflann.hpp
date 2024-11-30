@@ -1681,8 +1681,8 @@ class KDTreeSingleIndexAdaptor
         const SearchParameters& searchParams = {}) const
     {
         assert(vec);
-        if (this->size(*this) == 0) return false;
-        if (!Base::root_node_)
+        if (this->size(*this) == 0) [[unlikely]] return false;
+        if (!Base::root_node_) [[unlikely]]
             throw std::runtime_error(
                 "[nanoflann] findNeighbors() called before building the "
                 "index.");
