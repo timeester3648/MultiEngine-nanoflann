@@ -1,3 +1,13 @@
+# nanoflann 1.7.1: Released Mar 15, 2025
+ - ResultSets::worstDist(): Fix a potential access to negative index in array (did not happen in practice, but static analysis tools correctly detected this possibility).
+
+# nanoflann 1.7.0: Released Feb 3, 2025
+ - ResultSets::worstDist(): clarify the meaning of its return value, and made to return the actual worst distance in the found set (only if set is full)
+
+# nanoflann 1.6.3: Released Jan 7, 2025
+ - cmake_required_version bumped to 3.10
+ - clang-format version bumped to 14
+
 # nanoflann 1.6.2: Released Nov 4, 2024
  - BUG FIX: Fix middleSplit_ for same points by @yzabalotski in https://github.com/jlblancoc/nanoflann/pull/250
  - Fix build warnings.

@@ -1,7 +1,7 @@
 /***********************************************************************
  * Software License Agreement (BSD License)
  *
- * Copyright 2011-2024 Jose Luis Blanco (joseluisblancoc@gmail.com).
+ * Copyright 2011-2025 Jose Luis Blanco (joseluisblancoc@gmail.com).
  *   All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -101,7 +101,8 @@ void kdtree_demo(const size_t N)
 
     dump_mem_usage();
 
-    auto do_knn_search = [](const my_kd_tree_t& index) {
+    auto do_knn_search = [](const my_kd_tree_t& index)
+    {
         // do a knn search
         const size_t                   num_results = 1;
         size_t                         ret_index;
